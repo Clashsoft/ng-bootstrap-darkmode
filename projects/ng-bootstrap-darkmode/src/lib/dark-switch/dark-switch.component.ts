@@ -8,27 +8,19 @@ import {ThemeService} from '../theme.service';
   styleUrls: ['./dark-switch.component.scss']
 })
 export class DarkSwitchComponent implements OnInit {
-  private _enabled: boolean;
-
   constructor(
     private themeService: ThemeService,
   ) {
   }
 
   ngOnInit() {
-    this.loadEnabled();
-  }
-
-  private loadEnabled(): void {
-    this.enabled = this.themeService.theme === 'dark';
   }
 
   get enabled(): boolean {
-    return this._enabled;
+    return this.themeService.theme === 'dark';
   }
 
   set enabled(value: boolean) {
-    this._enabled = value;
     this.themeService.theme = value ? 'dark' : 'light';
   }
 }
