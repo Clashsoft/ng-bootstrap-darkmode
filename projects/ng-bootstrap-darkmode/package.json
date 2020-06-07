@@ -2,10 +2,14 @@
   "name": "ng-bootstrap-darkmode",
   "version": "0.0.1",
   "peerDependencies": {
+    "bootstrap-darkmode": "^0.6.0",
     "@angular/common": "^9.1.9",
     "@angular/core": "^9.1.9"
   },
   "dependencies": {
     "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "bootstrap-darkmode": "^0.6.0"
   }
 }
