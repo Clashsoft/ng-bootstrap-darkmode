@@ -2,5 +2,46 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ng-bootstrap-darkmode": {
+      "projectType": "library",
+      "root": "projects/ng-bootstrap-darkmode",
+      "sourceRoot": "projects/ng-bootstrap-darkmode/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-bootstrap-darkmode/tsconfig.lib.json",
+            "project": "projects/ng-bootstrap-darkmode/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-bootstrap-darkmode/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-bootstrap-darkmode/src/test.ts",
+            "tsConfig": "projects/ng-bootstrap-darkmode/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-bootstrap-darkmode/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-bootstrap-darkmode/tsconfig.lib.json",
+              "projects/ng-bootstrap-darkmode/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "ng-bootstrap-darkmode"
 }

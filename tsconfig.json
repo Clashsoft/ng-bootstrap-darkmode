@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-bootstrap-darkmode": [
+        "dist/ng-bootstrap-darkmode/ng-bootstrap-darkmode",
+        "dist/ng-bootstrap-darkmode"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
