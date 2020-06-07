@@ -10,7 +10,7 @@ export class ThemeService {
   constructor() {
   }
 
-  get theme$(): Observable<string> {
+  get theme$(): Observable<string | null> {
     return this._theme;
   }
 
