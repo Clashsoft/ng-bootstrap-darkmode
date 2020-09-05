@@ -4,4 +4,5 @@
 
 export * from './lib/theme.service';
 export * from './lib/dark-switch/dark-switch.component';
+export * from './lib/theme-switch/theme-switch.component';
 export * from './lib/ng-bootstrap-darkmode.module';
