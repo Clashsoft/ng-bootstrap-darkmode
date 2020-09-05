@@ -17,4 +17,17 @@
       </th>
     </tr>
   </table>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Style</th>
+      <th>Result</th>
+    </tr>
+    <tr *ngFor="let style of [undefined, 'icon', 'label']">
+      <th>{{style || '(undefined)'}}</th>
+      <th>
+        <ng-bootstrap-theme-switch [style]="style"></ng-bootstrap-theme-switch>
+      </th>
+    </tr>
+  </table>
 </div>

@@ -12,6 +12,7 @@ export class ThemeSwitchComponent implements OnInit {
   theme$: Subject<string | null>;
 
   @Input() size?: 'sm' | 'md' | 'lg';
+  @Input() style?: 'icon' | 'label';
 
   constructor(
     private themeService: ThemeService,
