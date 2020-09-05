@@ -18,6 +18,8 @@ devDependencies:
   '@types/jasmine': 3.5.14
   '@types/jasminewd2': 2.0.8
   '@types/node': 12.12.55
+  bootstrap: 4.5.2
+  bootstrap-darkmode: 0.7.0
   codelyzer: 5.2.2_4fe5af1a5547b0c45557e18541886fa4
   jasmine-core: 3.5.0
   jasmine-spec-reporter: 4.2.1
@@ -2160,6 +2162,17 @@ packages:
     dev: true
     resolution:
       integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+  /bootstrap-darkmode/0.7.0:
+    dev: true
+    resolution:
+      integrity: sha512-T9rTUFGirkTeGelUDJvWSjvUu11gQ4BE3g8s1dtHxEatz3u2XN5q8Oe2mQ5oKGR8IIi7i28Xrh/DVpEouUqBBA==
+  /bootstrap/4.5.2:
+    dev: true
+    peerDependencies:
+      jquery: 1.9.1 - 3
+      popper.js: ^1.16.1
+    resolution:
+      integrity: sha512-vlGn0bcySYl/iV+BGA544JkkZP5LB3jsmkeKLFQakCOwCM3AOk7VkldBz4jrzSe+Z0Ezn99NVXa1o45cQY4R6A==
   /boxen/4.2.0:
     dependencies:
       ansi-align: 3.0.0
@@ -10046,6 +10059,8 @@ specifiers:
   '@types/jasmine': ~3.5.14
   '@types/jasminewd2': ~2.0.8
   '@types/node': ^12.12.55
+  bootstrap: ^4.5.2
+  bootstrap-darkmode: ^0.7.0
   codelyzer: ^5.2.2
   jasmine-core: ~3.5.0
   jasmine-spec-reporter: ~4.2.1
