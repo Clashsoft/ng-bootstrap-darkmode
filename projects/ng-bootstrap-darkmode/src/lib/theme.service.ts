@@ -36,7 +36,7 @@ export class ThemeService {
   }
 
   get detectedTheme(): string {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
   get theme(): string | null {
