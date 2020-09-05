@@ -1,5 +1,20 @@
-<ng-bootstrap-darkmode-switch></ng-bootstrap-darkmode-switch>
-<ng-bootstrap-theme-switch></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch size="sm"></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch size="md"></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch size="lg"></ng-bootstrap-theme-switch>
+<div class="container">
+  <h1>NgBootstrapDarkmode Test Page</h1>
+
+  <h2>Darkmode Switch</h2>
+  <ng-bootstrap-darkmode-switch></ng-bootstrap-darkmode-switch>
+
+  <h2>Theme Switch</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Size</th>
+      <th>Result</th>
+    </tr>
+    <tr *ngFor="let size of [undefined, 'sm', 'md', 'lg']">
+      <th>{{size || '(undefined)'}}</th>
+      <th>
+        <ng-bootstrap-theme-switch [size]="size"></ng-bootstrap-theme-switch>
+      </th>
+    </tr>
+  </table>
+</div>
