@@ -44,7 +44,26 @@ export class AppModule {
 }
 ```
 
-Include the dark mode switch:
+Include the theme switcher, which allows selections between light, dark and automatic (user agent preference) mode:
+
+```html
+<ng-bootstrap-theme-switch></ng-bootstrap-theme-switch>
+```
+
+The theme switcher can be customized with the optional `[size]` and `[style]` attributes:
+
+```html
+<ng-bootstrap-theme-switch size="sm"></ng-bootstrap-theme-switch>
+<ng-bootstrap-theme-switch size="md"></ng-bootstrap-theme-switch>
+<ng-bootstrap-theme-switch size="lg"></ng-bootstrap-theme-switch>
+<ng-bootstrap-theme-switch [size]="userPrefersLargeElements ? 'lg' : 'md'"></ng-bootstrap-theme-switch>
+
+<ng-bootstrap-theme-switch style="icon"></ng-bootstrap-theme-switch>
+<ng-bootstrap-theme-switch style="label"></ng-bootstrap-theme-switch>
+<ng-bootstrap-theme-switch [style]="userPrefersLabelsOverIcons ? 'label' : 'icon'"></ng-bootstrap-theme-switch>
+```
+
+An outdated alternative is the dark mode switch, which does not support automatic mode:
 
 ```html
 <ng-bootstrap-darkmode-switch></ng-bootstrap-darkmode-switch>
