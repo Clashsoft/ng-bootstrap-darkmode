@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from 'rxjs';
+import {DOCUMENT} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,9 @@ export class ThemeService {
     }
   }
 
-  constructor() {
+  constructor(
+    @Inject(DOCUMENT) document: any,
+  ) {
     this._theme.next(this.savedTheme ?? this.detectedTheme);
     this._theme.subscribe(theme => {
       if (theme) {
