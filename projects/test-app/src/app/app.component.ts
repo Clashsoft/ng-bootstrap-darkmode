@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ThemeService} from 'ng-bootstrap-darkmode';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-app';
+
+  constructor(
+    themeService: ThemeService,
+  ) {
+    themeService.theme$.subscribe(theme => console.log(theme));
+  }
 }
