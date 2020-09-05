@@ -1,27 +1,66 @@
 # NgBootstrapDarkmode
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+An Angular wrapper for [bootstrap-darkmode](https://github.com/Clashsoft/bootstrap-darkmode).
+Provides the `DarkSwitchComponent` and `ThemeService`.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install the module:
 
-## Code scaffolding
+```sh
+$ npm install ng-bootstrap-darkmode bootstrap-darkmode
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Include darkmode css (in `styles.scss`):
 
-## Build
+```scss
+@import "~bootstrap-darkmode/darktheme";
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Alternatively, if you are not using SCSS, add the following in `angular.json` under `projects.<yourProject>.architect.build.options.styles`:
 
-## Running unit tests
+```json
+"styles": [
+  // ...
+  "../node_modules/bootstrap-darkmode/dist/darktheme.css"
+]
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Running end-to-end tests
+Import the module:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```typescript
+import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 
-## Further help
+@NgModule({
+  imports: [
+    // ...
+    NgBootstrapDarkmodeModule,
+  ],
+  // ...
+})
+export class AppModule {
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Include the dark mode switch:
+
+```html
+<ng-bootstrap-darkmode-switch></ng-bootstrap-darkmode-switch>
+```
+
+Subscribe to theme changes:
+
+```typescript
+import {ThemeService} from 'ng-bootstrap-darkmode';
+
+@Injectable()
+export class MyService {
+  constructor(
+    themeService: ThemeService,
+  ) {
+    themeService.theme$.subscribe(theme => console.log(theme));
+  }
+}
+```
