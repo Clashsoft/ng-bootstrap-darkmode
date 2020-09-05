@@ -11,3 +11,7 @@
 
 + Added a license.
 + Added additional info to package metadata.
+
+# v0.2.0 (2020-09-05)
+
++ Added the theme switch component with support for automatic theme.
