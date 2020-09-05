@@ -1,6 +1,6 @@
 {
   "name": "ng-bootstrap-darkmode",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "peerDependencies": {
     "bootstrap-darkmode": "^0.6.0",
     "@angular/common": "^9.1.9",
