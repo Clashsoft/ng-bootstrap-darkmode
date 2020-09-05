@@ -7,8 +7,11 @@ import {BehaviorSubject, Subject} from 'rxjs';
 export class ThemeService {
   private _theme = new BehaviorSubject<string | null>(null);
 
-  loadHandler: () => string | null = () => localStorage.getItem('theme') ?? null;
+  loadHandler: () => string | null = () => typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
   saveHandler: (theme: string | null) => void = theme => {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
     if (theme) {
       localStorage.setItem('theme', theme);
     } else {
