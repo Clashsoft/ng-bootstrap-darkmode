@@ -1,4 +1,7 @@
-<div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
+<div class="btn-group btn-group-toggle" data-toggle="buttons"
+     [class.btn-group-sm]="size==='sm'"
+     [class.btn-group-lg]="size==='lg'"
+>
   <label class="btn btn-light" (click)="theme$.next('light')" [class.active]="(theme$ | async) === 'light'">
     <input type="radio" name="options" autocomplete="off">
     <!-- https://primer.style/octicons/sun-16 -->

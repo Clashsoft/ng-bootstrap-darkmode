@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import {ThemeService} from '../theme.service';
 import {Subject} from 'rxjs';
@@ -10,6 +10,8 @@ import {Subject} from 'rxjs';
 })
 export class ThemeSwitchComponent implements OnInit {
   theme$: Subject<string | null>;
+
+  @Input() size?: 'sm' | 'md' | 'lg';
 
   constructor(
     private themeService: ThemeService,
