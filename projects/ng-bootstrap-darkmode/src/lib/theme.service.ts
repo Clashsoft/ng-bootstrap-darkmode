@@ -23,9 +23,9 @@ export class ThemeService {
     this._theme.next(this.savedTheme ?? this.detectedTheme);
     this._theme.subscribe(theme => {
       if (theme) {
-        document.body.setAttribute('theme', theme);
+        document.body.setAttribute('data-theme', theme);
       } else {
-        document.body.removeAttribute('theme');
+        document.body.removeAttribute('data-theme');
       }
     });
     this._theme.subscribe(theme => this.savedTheme = theme);
