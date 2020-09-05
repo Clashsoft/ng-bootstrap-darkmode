@@ -1,10 +1,10 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService implements OnInit {
+export class ThemeService {
   private _theme = new BehaviorSubject<string | null>(null);
 
   loadHandler: () => string | null = () => localStorage.getItem('theme') ?? null;
@@ -17,9 +17,6 @@ export class ThemeService implements OnInit {
   }
 
   constructor() {
-  }
-
-  ngOnInit(): void {
     this._theme.next(this.savedTheme ?? this.detectedTheme);
     this._theme.subscribe(theme => {
       if (theme) {
