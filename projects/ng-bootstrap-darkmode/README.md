@@ -19,7 +19,7 @@ Include darkmode css (in `styles.scss`):
 
 Alternatively, if you are not using SCSS, add the following in `angular.json` under `projects.<yourProject>.architect.build.options.styles`:
 
-```json
+```json5
 "styles": [
   // ...
   "../node_modules/bootstrap-darkmode/dist/darktheme.css"
