@@ -1,6 +1,27 @@
 {
   "name": "ng-bootstrap-darkmode",
   "version": "0.1.1",
+  "description": "An Angular wrapper for bootstrap-darkmode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clashsoft/ng-bootstrap-darkmode.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "bootstrap-4",
+    "darkmode",
+    "darktheme",
+    "angular"
+  ],
+  "author": {
+    "name": "Adrian Kunz",
+    "email": "clashsoft@hotmail.com"
+  },
+  "license": "BSD 3-Clause",
+  "bugs": {
+    "url": "https://github.com/Clashsoft/ng-bootstrap-darkmode/issues"
+  },
+  "homepage": "https://github.com/Clashsoft/ng-bootstrap-darkmode",
   "peerDependencies": {
     "bootstrap-darkmode": "^0.6.0",
     "@angular/common": "^9.1.9",
