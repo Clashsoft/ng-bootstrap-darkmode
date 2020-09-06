@@ -8,7 +8,6 @@
 </p>
 
 An Angular wrapper for [bootstrap-darkmode](https://github.com/Clashsoft/bootstrap-darkmode).
-Provides the `DarkSwitchComponent` and `ThemeService`.
 
 ## Installation
 
