@@ -1,5 +1,12 @@
 # NgBootstrapDarkmode
 
+<p align="center">
+
+[![npm version](https://badge.fury.io/js/ng-bootstrap-darkmode.svg)](https://badge.fury.io/js/ng-bootstrap-darkmode)
+![Node.js CI](https://github.com/Clashsoft/ng-bootstrap-darkmode/workflows/Node.js%20CI/badge.svg)
+
+</p>
+
 An Angular wrapper for [bootstrap-darkmode](https://github.com/Clashsoft/bootstrap-darkmode).
 Provides the `DarkSwitchComponent` and `ThemeService`.
 
