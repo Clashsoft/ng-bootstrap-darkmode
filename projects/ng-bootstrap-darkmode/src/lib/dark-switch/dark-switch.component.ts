@@ -4,6 +4,10 @@ import {Subject} from 'rxjs';
 
 import {ThemeService} from '../theme.service';
 
+/**
+ * A simple boolean toggle for enabling dark mode.
+ * Enabling the toggle sets the theme to `dark`, while disabling sets it to `light`.
+ */
 @Component({
   selector: 'ng-bootstrap-darkmode-switch',
   templateUrl: './dark-switch.component.html',
