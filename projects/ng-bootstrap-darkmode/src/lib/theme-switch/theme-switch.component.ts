@@ -1,12 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-import {ThemeService} from '../theme.service';
 import {Subject} from 'rxjs';
+
+import {ThemeService} from '../theme.service';
 
 @Component({
   selector: 'ng-bootstrap-theme-switch',
   templateUrl: './theme-switch.component.html',
-  styleUrls: ['./theme-switch.component.scss']
+  styleUrls: ['./theme-switch.component.scss'],
 })
 export class ThemeSwitchComponent implements OnInit {
   theme$: Subject<string | null>;

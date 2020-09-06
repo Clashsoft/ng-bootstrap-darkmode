@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 
-import {ThemeService} from '../theme.service';
 import {Subject} from 'rxjs';
+
+import {ThemeService} from '../theme.service';
 
 @Component({
   selector: 'ng-bootstrap-darkmode-switch',
   templateUrl: './dark-switch.component.html',
-  styleUrls: ['./dark-switch.component.scss']
+  styleUrls: ['./dark-switch.component.scss'],
 })
 export class DarkSwitchComponent implements OnInit {
   theme$: Subject<string | null>;

@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
-import {DarkSwitchComponent} from './dark-switch/dark-switch.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+
+import {DarkSwitchComponent} from './dark-switch/dark-switch.component';
 import {ThemeSwitchComponent} from './theme-switch/theme-switch.component';
 
 @NgModule({
@@ -16,7 +17,7 @@ import {ThemeSwitchComponent} from './theme-switch/theme-switch.component';
   exports: [
     DarkSwitchComponent,
     ThemeSwitchComponent,
-  ]
+  ],
 })
 export class NgBootstrapDarkmodeModule {
 }

@@ -1,12 +1,13 @@
 import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
+
 import {BehaviorSubject, fromEvent, Observable, of, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 export type DetectedTheme = 'dark' | 'light';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private _theme = new BehaviorSubject<string | null>(null);
@@ -21,7 +22,7 @@ export class ThemeService {
     } else {
       localStorage.removeItem('theme');
     }
-  }
+  };
 
   constructor(
     @Inject(DOCUMENT) document: any,
