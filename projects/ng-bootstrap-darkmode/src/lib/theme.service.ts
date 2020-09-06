@@ -2,6 +2,8 @@ import {Inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {DOCUMENT} from '@angular/common';
 
+export type DetectedTheme = 'dark' | 'light';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,7 +40,7 @@ export class ThemeService {
     return this._theme;
   }
 
-  get detectedTheme(): string {
+  get detectedTheme(): DetectedTheme {
     return typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
