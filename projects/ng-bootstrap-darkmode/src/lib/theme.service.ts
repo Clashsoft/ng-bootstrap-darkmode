@@ -1,6 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
-import {BehaviorSubject, Subject} from 'rxjs';
 import {DOCUMENT} from '@angular/common';
+import {BehaviorSubject, fromEvent, Observable, of, Subject} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 export type DetectedTheme = 'dark' | 'light';
 
@@ -42,6 +43,15 @@ export class ThemeService {
 
   get detectedTheme(): DetectedTheme {
     return typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  get detectedTheme$(): Observable<DetectedTheme> {
+    if (typeof window === 'undefined') {
+      return of('light');
+    }
+    return fromEvent<MediaQueryListEvent>(window.matchMedia('(prefers-color-scheme: dark)'), 'change').pipe(
+      map(event => event.matches ? 'dark' : 'light'),
+    );
   }
 
   get theme(): string | null {
