@@ -1,11 +1,7 @@
 # NgBootstrapDarkmode
 
-<p align="center">
-
 [![npm version](https://badge.fury.io/js/ng-bootstrap-darkmode.svg)](https://badge.fury.io/js/ng-bootstrap-darkmode)
-![Node.js CI](https://github.com/Clashsoft/ng-bootstrap-darkmode/workflows/Node.js%20CI/badge.svg)
-
-</p>
+[![Node.js CI](https://github.com/Clashsoft/ng-bootstrap-darkmode/workflows/Node.js%20CI/badge.svg)](https://github.com/Clashsoft/ng-bootstrap-darkmode/actions?query=workflow%3A%22Node.js+CI%22)
 
 An Angular wrapper for [bootstrap-darkmode](https://github.com/Clashsoft/bootstrap-darkmode).
 
