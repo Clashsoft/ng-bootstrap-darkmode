@@ -20,6 +20,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm test
+    - name: Run Unit Tests
+      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+    - name: Run E2E Tests
+      run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
     - name: NPM install cache
       uses: c-hive/gha-npm-cache@v1
