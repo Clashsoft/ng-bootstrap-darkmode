@@ -23,3 +23,8 @@
 + Added the selector `ngbd-darkmode-switch` as an alias for `ng-bootstrap-darkmode-switch`.
 + Added the selector `ngbd-theme-switch` as an alias for `ng-bootstrap-theme-switch`.
 * The `ThemeService.detectedTheme` property is now strongly typed with literal types.
+
+# v0.4.0 (2020-09-11)
+
+* Loading and saving can now be customized using dependency injection.
+* The `ThemeService.detectedTheme$` observable now starts with the initial media query result.
