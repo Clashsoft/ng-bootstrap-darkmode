@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 
 import {BehaviorSubject, fromEvent, Observable, of, Subject} from 'rxjs';
@@ -6,38 +6,48 @@ import {map, startWith} from 'rxjs/operators';
 
 export type DetectedTheme = 'dark' | 'light';
 
+export type ThemeLoader = () => string | null;
+export type ThemeSaver = (theme: string | null) => void;
+
+/**
+ * A function that loads the saved theme.
+ * Defaults to loading from local storage with the key `theme`.
+ */
+export const THEME_LOADER: InjectionToken<ThemeLoader> = new InjectionToken<ThemeLoader>('', {
+  factory(): ThemeLoader {
+    return () => typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
+  },
+});
+
+/**
+ * A function that saves the theme.
+ * Defaults to saving to local storage with the key `theme`.
+ */
+export const THEME_SAVER: InjectionToken<ThemeSaver> = new InjectionToken<ThemeSaver>('', {
+  factory(): ThemeSaver {
+    return theme => {
+      if (typeof localStorage === 'undefined') {
+        return;
+      }
+      if (theme) {
+        localStorage.setItem('theme', theme);
+      } else {
+        localStorage.removeItem('theme');
+      }
+    };
+  },
+});
+
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private _theme = new BehaviorSubject<string | null>(null);
 
-  /**
-   * A function that loads the saved theme.
-   * Defaults to loading from local storage with the key `theme`.
-   */
-  loadHandler: () => string | null = () => typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
-
-  /**
-   * A function that saves the theme.
-   * Defaults to saving to local storage with the key `theme`.
-   *
-   * @param theme
-   *  the theme to save
-   */
-  saveHandler: (theme: string | null) => void = theme => {
-    if (typeof localStorage === 'undefined') {
-      return;
-    }
-    if (theme) {
-      localStorage.setItem('theme', theme);
-    } else {
-      localStorage.removeItem('theme');
-    }
-  };
-
   constructor(
     @Inject(DOCUMENT) document: any,
+    @Inject(THEME_LOADER) private _loadHandler: ThemeLoader,
+    @Inject(THEME_SAVER) private _saveHandler: ThemeSaver,
   ) {
     this._theme.next(this.savedTheme ?? this.detectedTheme);
     this._theme.subscribe(theme => {
@@ -96,17 +106,17 @@ export class ThemeService {
   }
 
   /**
-   * @return the saved theme, using {@link loadHandler}
+   * @return the saved theme, using {@link THEME_LOADER}
    */
   get savedTheme(): string | null {
-    return this.loadHandler();
+    return this._loadHandler();
   }
 
   /**
    * @param theme
-   *  the theme to save using {@link saveHandler}
+   *  the theme to save using {@link THEME_SAVER}
    */
   set savedTheme(theme: string | null) {
-    this.saveHandler(theme);
+    this._saveHandler(theme);
   }
 }
