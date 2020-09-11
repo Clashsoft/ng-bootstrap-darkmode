@@ -1,6 +1,13 @@
 <div class="container">
   <h1>NgBootstrapDarkmode Test Page</h1>
 
+  <p>
+    Detected Theme: <code>{{themeService.detectedTheme$ | async}}</code>
+  </p>
+  <p>
+    Selected Theme: <code>{{themeService.theme$ | async}}</code>
+  </p>
+
   <h2>Darkmode Switch</h2>
   <ng-bootstrap-darkmode-switch></ng-bootstrap-darkmode-switch>
 

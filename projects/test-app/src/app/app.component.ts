@@ -10,8 +10,7 @@ export class AppComponent {
   title = 'test-app';
 
   constructor(
-    themeService: ThemeService,
+    public themeService: ThemeService,
   ) {
-    themeService.theme$.subscribe(theme => console.log(theme));
   }
 }
