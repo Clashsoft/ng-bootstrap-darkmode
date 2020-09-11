@@ -87,3 +87,33 @@ export class MyService {
   }
 }
 ```
+
+### Configuring Persistence
+
+By default, this library persists the currently selected theme using the key `theme` in `localStorage`.
+You can customize how this behaviour using dependency injection.
+Just provide the `THEME_SAVER` and `THEME_LOADER` functions in your module:
+
+```typescript
+import {NgBootstrapDarkmodeModule, THEME_LOADER, THEME_SAVER} from 'ng-bootstrap-darkmode';
+
+@NgModule({
+  imports: [
+    // ...
+    NgBootstrapDarkmodeModule,
+  ],
+  providers: [
+    {
+      provide: THEME_LOADER,
+      useValue: () => 'light',
+    },
+    {
+      provide: THEME_SAVER,
+      useValue: (theme) => console.log('saving', theme),
+    },
+  ],
+  // ...
+})
+export class AppModule {
+}
+```
