@@ -43,12 +43,17 @@ export const THEME_SAVER: InjectionToken<ThemeSaver> = new InjectionToken<ThemeS
 })
 export class ThemeService {
   private _theme = new BehaviorSubject<string | null>(null);
+  private readonly _loadHandler: ThemeLoader;
+  private readonly _saveHandler: ThemeSaver;
 
   constructor(
     @Inject(DOCUMENT) document: any,
-    @Inject(THEME_LOADER) private _loadHandler: ThemeLoader,
-    @Inject(THEME_SAVER) private _saveHandler: ThemeSaver,
+    @Inject(THEME_LOADER) loadHandler: any,
+    @Inject(THEME_SAVER) saveHandler: any,
   ) {
+    this._loadHandler = loadHandler;
+    this._saveHandler = saveHandler;
+
     this._theme.next(this.savedTheme ?? this.detectedTheme);
     this._theme.subscribe(theme => {
       if (theme) {
