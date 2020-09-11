@@ -49,26 +49,26 @@ export class AppModule {
 Include the theme switcher, which allows selections between light, dark and automatic (user agent preference) mode:
 
 ```html
-<ng-bootstrap-theme-switch></ng-bootstrap-theme-switch>
+<ngbd-theme-switch></ngbd-theme-switch>
 ```
 
 The theme switcher can be customized with the optional `[size]` and `[style]` attributes:
 
 ```html
-<ng-bootstrap-theme-switch size="sm"></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch size="md"></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch size="lg"></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch [size]="userPrefersLargeElements ? 'lg' : 'md'"></ng-bootstrap-theme-switch>
+<ngbd-theme-switch size="sm"></ngbd-theme-switch>
+<ngbd-theme-switch size="md"></ngbd-theme-switch>
+<ngbd-theme-switch size="lg"></ngbd-theme-switch>
+<ngbd-theme-switch [size]="userPrefersLargeElements ? 'lg' : 'md'"></ngbd-theme-switch>
 
-<ng-bootstrap-theme-switch style="icon"></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch style="label"></ng-bootstrap-theme-switch>
-<ng-bootstrap-theme-switch [style]="userPrefersLabelsOverIcons ? 'label' : 'icon'"></ng-bootstrap-theme-switch>
+<ngbd-theme-switch style="icon"></ngbd-theme-switch>
+<ngbd-theme-switch style="label"></ngbd-theme-switch>
+<ngbd-theme-switch [style]="userPrefersLabelsOverIcons ? 'label' : 'icon'"></ngbd-theme-switch>
 ```
 
 An outdated alternative is the dark mode switch, which does not support automatic mode:
 
 ```html
-<ng-bootstrap-darkmode-switch></ng-bootstrap-darkmode-switch>
+<ngbd-darkmode-switch></ngbd-darkmode-switch>
 ```
 
 Subscribe to theme changes:
