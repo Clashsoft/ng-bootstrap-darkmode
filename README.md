@@ -30,7 +30,7 @@ Alternatively, if you are not using SCSS, add the following in `angular.json` un
 
 ## Usage
 
-Import the module:
+### Module Import
 
 ```typescript
 import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
@@ -46,7 +46,9 @@ export class AppModule {
 }
 ```
 
-Include the theme switcher, which allows selections between light, dark and automatic (user agent preference) mode:
+### Theme Switcher
+
+To include the theme switcher, which allows selections between light, dark and automatic (user agent preference) mode:
 
 ```html
 <ngbd-theme-switch></ngbd-theme-switch>
@@ -71,7 +73,7 @@ An outdated alternative is the dark mode switch, which does not support automati
 <ngbd-darkmode-switch></ngbd-darkmode-switch>
 ```
 
-Subscribe to theme changes:
+### Subscribing to the Theme
 
 ```typescript
 import {ThemeService} from 'ng-bootstrap-darkmode';
