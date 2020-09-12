@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {NgBootstrapDarkmodeModule, THEME_LOADER, THEME_SAVER} from 'ng-bootstrap-darkmode';
+import {of} from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import {NgBootstrapDarkmodeModule, THEME_LOADER, THEME_SAVER} from 'ng-bootstrap
   providers: [
     {
       provide: THEME_LOADER,
-      useValue: () => 'loaded-light',
+      useValue: () => of('loaded-light'),
     },
     {
       provide: THEME_SAVER,

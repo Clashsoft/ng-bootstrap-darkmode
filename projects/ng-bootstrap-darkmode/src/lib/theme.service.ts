@@ -2,11 +2,11 @@ import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 
 import {BehaviorSubject, fromEvent, Observable, of, Subject} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {filter, map, startWith} from 'rxjs/operators';
 
 export type DetectedTheme = 'dark' | 'light';
 
-export type ThemeLoader = () => string | null;
+export type ThemeLoader = () => Observable<string | null>;
 export type ThemeSaver = (theme: string | null) => void;
 
 /**
@@ -15,7 +15,16 @@ export type ThemeSaver = (theme: string | null) => void;
  */
 export const THEME_LOADER: InjectionToken<ThemeLoader> = new InjectionToken<ThemeLoader>('', {
   factory(): ThemeLoader {
-    return () => typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
+    return () => {
+      if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+        return of(null);
+      }
+      return fromEvent<StorageEvent>(window, 'storage').pipe(
+        filter(event => event.key === 'theme' && event.storageArea === localStorage),
+        map(event => event.newValue),
+        startWith(localStorage.getItem('theme')),
+      );
+    };
   },
 });
 
@@ -43,26 +52,23 @@ export const THEME_SAVER: InjectionToken<ThemeSaver> = new InjectionToken<ThemeS
 })
 export class ThemeService {
   private _theme = new BehaviorSubject<string | null>(null);
-  private readonly _loadHandler: ThemeLoader;
-  private readonly _saveHandler: ThemeSaver;
 
   constructor(
     @Inject(DOCUMENT) document: any,
     @Inject(THEME_LOADER) loadHandler: any,
     @Inject(THEME_SAVER) saveHandler: any,
   ) {
-    this._loadHandler = loadHandler;
-    this._saveHandler = saveHandler;
+    ((loadHandler as ThemeLoader)()).subscribe(theme => this._theme.next(theme));
 
-    this._theme.next(this.savedTheme ?? this.detectedTheme);
     this._theme.subscribe(theme => {
       if (theme) {
         document.body.setAttribute('data-theme', theme);
       } else {
         document.body.removeAttribute('data-theme');
       }
+
+      (saveHandler as ThemeSaver)(theme);
     });
-    this._theme.subscribe(theme => this.savedTheme = theme);
   }
 
   /**
@@ -108,20 +114,5 @@ export class ThemeService {
    */
   set theme(value: string | null) {
     this._theme.next(value);
-  }
-
-  /**
-   * @return the saved theme, using {@link THEME_LOADER}
-   */
-  get savedTheme(): string | null {
-    return this._loadHandler();
-  }
-
-  /**
-   * @param theme
-   *  the theme to save using {@link THEME_SAVER}
-   */
-  set savedTheme(theme: string | null) {
-    this._saveHandler(theme);
   }
 }
