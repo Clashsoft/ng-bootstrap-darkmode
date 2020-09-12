@@ -95,6 +95,8 @@ You can customize how this behaviour using dependency injection.
 Just provide the `THEME_SAVER` and `THEME_LOADER` functions in your module:
 
 ```typescript
+import {of} from 'rxjs';
+
 import {NgBootstrapDarkmodeModule, THEME_LOADER, THEME_SAVER} from 'ng-bootstrap-darkmode';
 
 @NgModule({
@@ -105,7 +107,7 @@ import {NgBootstrapDarkmodeModule, THEME_LOADER, THEME_SAVER} from 'ng-bootstrap
   providers: [
     {
       provide: THEME_LOADER,
-      useValue: () => 'light',
+      useValue: () => of('light'),
     },
     {
       provide: THEME_SAVER,
