@@ -28,3 +28,11 @@
 
 * Loading and saving can now be customized using dependency injection.
 * The `ThemeService.detectedTheme$` observable now starts with the initial media query result.
+
+# v0.5.0 (2021-07-08)
+
++ The default `ThemeLoader` now watches for changes to LocalStorage. #2
+* Updated to Angular 12.
+* Made `ThemeLoader` an `Observable`. #2
+- The `ThemeService` no longer auto-detects the theme.
+- Removed the `ThemeService.savedTheme` and `loadedTheme` properties. #2
