@@ -165,8 +165,5 @@
       }
     }
   },
-  "defaultProject": "ng-bootstrap-darkmode",
-  "cli": {
-    "packageManager": "npm"
-  }
+  "defaultProject": "ng-bootstrap-darkmode"
 }
