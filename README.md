@@ -16,7 +16,7 @@ $ npm install ng-bootstrap-darkmode bootstrap-darkmode
 Include darkmode css (in `styles.scss`):
 
 ```scss
-@import "~bootstrap-darkmode/darktheme";
+@import "~bootstrap-darkmode/scss/darktheme";
 ```
 
 Alternatively, if you are not using SCSS, add the following in `angular.json` under `projects.<yourProject>.architect.build.options.styles`:
