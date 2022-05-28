@@ -8,7 +8,7 @@
   },
   "keywords": [
     "bootstrap",
-    "bootstrap-4",
+    "bootstrap-5",
     "darkmode",
     "darktheme",
     "angular"
@@ -23,15 +23,15 @@
   },
   "homepage": "https://github.com/Clashsoft/ng-bootstrap-darkmode",
   "peerDependencies": {
-    "bootstrap-darkmode": "^0.7.0",
-    "@angular/common": "^12.1.1",
-    "@angular/core": "^12.1.1",
-    "@angular/forms": "^12.1.1"
+    "bootstrap-darkmode": "^5.0.1",
+    "@angular/common": "^13.3.10",
+    "@angular/core": "^13.3.10",
+    "@angular/forms": "^13.3.10"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "bootstrap-darkmode": "^0.7.0"
+    "bootstrap-darkmode": "^5.0.1"
   }
 }
