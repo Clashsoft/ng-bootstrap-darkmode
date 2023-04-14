@@ -1,4 +1,4 @@
-# NgBootstrapDarkmode
+# NgBootstrapDarkmode - moved to [ngbx](https://github.com/Clashsoft/meanstream/tree/master/libs/ngbx#readme)
 
 [![npm version](https://badge.fury.io/js/ng-bootstrap-darkmode.svg)](https://badge.fury.io/js/ng-bootstrap-darkmode)
 [![Node.js CI](https://github.com/Clashsoft/ng-bootstrap-darkmode/workflows/Node.js%20CI/badge.svg)](https://github.com/Clashsoft/ng-bootstrap-darkmode/actions?query=workflow%3A%22Node.js+CI%22)
